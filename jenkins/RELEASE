@@ -1,3 +1,5 @@
 BUILD=yes
 JENKINS_VERSION=2.332.1
-JENKINS_SHA=5a14b379574419abb14123b45d0c6c32276c3198bf694239c93585ef78c33977 # jenkins.war checksum, download will be validated using it
+
+# jenkins.war checksum, download will be validated using it
+JENKINS_SHA=5a14b379574419abb14123b45d0c6c32276c3198bf694239c93585ef78c33977
