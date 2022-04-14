@@ -33,18 +33,25 @@ jobs:
 
       - name: Check matrix definition
         run: |
-          echo "Base images:"
+          echo "\u001b[32m** Generated matrices: **\u001b[0m"
+          echo "################################"
+          echo "\u001b[35mBase images:\u001b[0m"
           matrix='${{ needs.generate-build-matrix.outputs.matrix }}'
-          echo $matrix
+          echo "\u001b[36m[JSON]:\u001b[0m"
           echo $matrix | jq .
+          echo "\u001b[36m[YAML]:\u001b[0m"
           echo $matrix | json2yaml
-          echo "Variants images:"
+          echo "################################"
+          echo "\u001b[35mBamboo variants images:"
           matrix='${{ needs.generate-build-matrix.outputs.matrix_variants }}'
-          echo $matrix
+          echo "\u001b[36m[JSON]:\u001b[0m"
           echo $matrix | jq .
+          echo "\u001b[36m[YAML]:\u001b[0m"
           echo $matrix | json2yaml
-          echo 'build_base_images ${{ needs.generate-build-matrix.outputs.build_base_images }}'
-          echo 'build_bamboo_variants ${{ needs.generate-build-matrix.outputs.build_bamboo_variants }}'
+          echo "################################"
+          echo "\u001b[32m** Build flags: **\u001b[0m"
+          echo '\u001b[35mShould build base images:\u001b[0m ${{ needs.generate-build-matrix.outputs.build_base_images }}'
+          echo '\u001b[35mShould build variants:\u001b[0m ${{ needs.generate-build-matrix.outputs.build_bamboo_variants }}'
 
   buildx:
     name: Build and Push the Docker Images
