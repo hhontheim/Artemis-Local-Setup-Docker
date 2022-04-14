@@ -9,7 +9,7 @@ Currently this repository contains Dockerfiles for the following tools:
 - Bamboo (adapted from <https://bitbucket.org/atlassian-docker/docker-bamboo-server/src/7.2.5/>)
 - Jira (adapted from <https://bitbucket.org/atlassian-docker/docker-atlassian-jira/src/master/>)
 - GitLab (adapted from <https://gitlab.com/gitlab-org/omnibus-gitlab/-/tree/master/docker>)
-- Jenkins (adapted from <https://example.com/>)
+- Jenkins (adapted from <https://github.com/jenkinsci/docker>)
 
 ## Building the images
 
