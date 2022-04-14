@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+LABEL description="GitLab for Artemis"
+
 SHELL ["/bin/sh", "-c"]
 
 # Default to supporting utf-8
