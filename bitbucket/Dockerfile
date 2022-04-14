@@ -51,11 +51,9 @@ RUN curl -L --silent                             ${DOWNLOAD_URL} | tar -xz --str
 RUN chmod -R "u=rwX,g=rX,o=rX"                   ${BITBUCKET_INSTALL_DIR}/
 RUN chown -R root.                               ${BITBUCKET_INSTALL_DIR}/
 
-RUN ls -la ${BITBUCKET_INSTALL_DIR}
-RUN ls -la ${BITBUCKET_INSTALL_DIR}/elasticsearch
-RUN ls -la ${BITBUCKET_INSTALL_DIR}/elasticsearch/logs
+RUN [ -d ${BITBUCKET_INSTALL_DIR}/elasticsearch/logs ] && chown -R ${RUN_USER}:${RUN_GROUP} ${BITBUCKET_INSTALL_DIR}/elasticsearch/logs
+RUN [ -d ${BITBUCKET_INSTALL_DIR}/opensearch/logs ] && chown -R ${RUN_USER}:${RUN_GROUP} ${BITBUCKET_INSTALL_DIR}/opensearch/logs
 
-RUN chown -R ${RUN_USER}:${RUN_GROUP}            ${BITBUCKET_INSTALL_DIR}/elasticsearch/logs
 RUN chown -R ${RUN_USER}:${RUN_GROUP}            ${BITBUCKET_HOME}
 
 VOLUME ["${BITBUCKET_HOME}"]
