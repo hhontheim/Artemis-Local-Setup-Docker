@@ -15,7 +15,7 @@ Currently this repository contains Dockerfiles for the following tools:
 
 Each push to main (or merge into), will trigger a re-build of the images.
 
-> __Please note:__ Only those images that have changes in either their `Dockerfile` or `RELEASE`-file will be rebuilt!
+> :warning: __Please note:__ Only those images that have changes in either their `Dockerfile` or `RELEASE`-file will be rebuilt!
 
 To prevent an image from being built at all, simply change the `BUILD=yes` line to `BUILD=no` in the corresponding `RELEASE`-file.
 
