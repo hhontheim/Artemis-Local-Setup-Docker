@@ -100,7 +100,7 @@ jobs:
           build-args: VERSION=${{ matrix.version }}
           platforms: linux/arm64/v8,linux/amd64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/hhontheim/artemis-${{ matrix.name }}:latest,ghcr.io/hhontheim/artemis-${{ matrix.name }}:${{ matrix.version }}
+          tags: ghcr.io/${{ github.event.repository.owner.login }}/artemis-${{ matrix.name }}:latest,ghcr.io/${{ github.event.repository.owner.login }}/artemis-${{ matrix.name }}:${{ matrix.version }} # TDDO: Make image base name conditional of repo name! Also @ other locations within this file!
           labels: "runnumber=${GITHUB_RUN_ID}"
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
@@ -158,7 +158,7 @@ jobs:
           build-args: VERSION=${{ matrix.version }}
           platforms: ${{ matrix.platforms }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/hhontheim/artemis-bamboo:latest-${{ matrix.name }},ghcr.io/hhontheim/artemis-bamboo:${{ matrix.version }}-${{ matrix.name }}
+          tags: ghcr.io/${{ github.event.repository.owner.login }}/artemis-bamboo:latest-${{ matrix.name }},ghcr.io/${{ github.event.repository.owner.login }}/artemis-bamboo:${{ matrix.version }}-${{ matrix.name }}
           labels: "runnumber=${GITHUB_RUN_ID}"
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
